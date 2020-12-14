@@ -34,13 +34,23 @@
                     <div class="card border-info mb-3" >
                         <div class="card-header text-center">My To-Do</div>
                             <div class="card-body text-info">
-                                
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="task?" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add Task</button>
+                                <form action="{% url 'ToDo:Add Task' %}" method="post">
+                                    <div class="input-group mb-3">
+                                        <!-- <input type="text" class="form-control" placeholder="task?" aria-label="Recipient's username" aria-describedby="button-addon2"> -->
+
+                                        
+                                            {% csrf_token %}
+                                            
+                                            {{ form.task }}
+                                            
+                                            
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add Task</button>
+                                            </div>
+                                        
+
                                     </div>
-                                </div>
+                                </form>
                                 <h5 class="card-title">Tasks</h5>
                                 {% for task in tasks %}
                                 <div class="card mt-2">
