@@ -3,24 +3,14 @@ from django.forms import ModelForm
 
 from .models import Tasks
 
-# class AddTaskForm(forms.Form):
-# 	text = forms.CharField(max_length = 250,
-
-# 							widget = forms.TextInput(
-# 								attrs = {
-# 									'class' : 'form-control',
-# 									'placeholder' : 'task?'
-# 								}
-# 							)
-# 						)
-
 class AddTaskForm(forms.ModelForm):
 
 	task = forms.CharField(max_length = 250,
 							widget = forms.TextInput(
 								attrs = {
 									'class' : 'form-control',
-									'placeholder' : 'task?'
+									'placeholder' : 'task?',
+
 								}
 							)
 						)
